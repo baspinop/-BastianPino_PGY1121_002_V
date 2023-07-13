@@ -1,3 +1,8 @@
+
+from datetime import date
+from datetime import datetime
+
+
 entradas_platinium = [""] * 20
 entradas_gold = [""] * 30
 entradas_silver = [""] * 50
@@ -14,7 +19,10 @@ cant_asientos_platinium = 0
 cant_asientos_gold = 0
 cant_asientos_silver = 0
 
+nombre = input("Por favor, Ingrese su nombre: ")
+
 def mostrar_menu():
+  
   print()
   print("------MENU------")
   print("1) Comprar Entradas")
@@ -142,6 +150,11 @@ def mostrar_ganancias():
   print(f"silver   $50.000            {cant_asientos_silver}                           ${ganancias_silver}")
   print(f"Total                       {cant_asientos_silver+cant_asientos_gold+cant_asientos_platinium}                           ${ganancias_totales}")
 
+def fecha_de_hoy():
+   today = date.today()
+   fecha_invertida = today.strftime("%d-%m-%Y")
+   return fecha_invertida
+
 ##Codigo base
 def inicio():
   try:
@@ -158,7 +171,7 @@ def inicio():
       elif opcion == 4:
         mostrar_ganancias()
       elif opcion == 5:
-        print("Gracias por usar el Sofware")
+        print(f"Gracias por usar el Sofware, {nombre} {fecha_de_hoy()}")
         break
   except:
     print("Ha ocurrido un error")
